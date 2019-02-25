@@ -1,46 +1,43 @@
 
 java总结
 =====
-    五片内存：寄存器，本地方法区，方法去，堆，栈<br>
-    堆：数组，对象，也就是封装好的实体<br>
-    栈：局部变量<br>
-    堆得变量都有默认初始化<br>
-    构造代码块：所有的对象进行初始化，所有的对象都会调用一个代码块<br>
-    构造函数：给相对应的对象进行初始化，具有针对性<br>
-    this：代表对象，就是锁在函数所属对象的引用（在构造函数中必须是第一行）<br>
-    静态方法：只能访问静态成员。不能使用this，super<br>
-    静态变量存在方法区。成员变量在堆内存<br>
-    静态代码块：有静态关键字标识的代码块，只执行一次<br>
-    静态代码块>构造代码块>构造函数<br>
-    单例模式：保证一个类在内存中的对象唯一性<br>
-代码体现：私有化构造函数<br>    
-创建私有并静态的本类对象<br>                        
-定义公有并静态的方法，返回该对象<br>
-//饿汉式<br>
-class Single{<br>
-      private Single(){}//私有化构造函数<br>
-          private static Single s=new Single();//创建私有并静态的本类对象<br>
-            public static Single getInstance(){//定义公有并静态的方法，返回该对象<br>
-        return s;<br>
-    }<br>
-}<br>
-//懒汉式:延迟加载<br>
-class Single2{<br>
-  private Single2(){}<br>
-  private static Single2 s=null;<br>
-  public static Single2 getInstance(){<br>
-      if(s==null)<br>
-      s=new Single2();<br>
-    return s;<br>
-}<br>
-}<br>
+    五片内存：寄存器，本地方法区，方法去，堆，栈
+    堆：数组，对象，也就是封装好的实体
+    栈：局部变量
+    堆得变量都有默认初始化
+    构造代码块：所有的对象进行初始化，所有的对象都会调用一个代码块
+    构造函数：给相对应的对象进行初始化，具有针对性
+    this：代表对象，就是锁在函数所属对象的引用（在构造函数中必须是第一行）
+    静态方法：只能访问静态成员。不能使用this，super
+    静态变量存在方法区。成员变量在堆内存
+    静态代码块：有静态关键字标识的代码块，只执行一次
+    静态代码块>构造代码块>构造函数
+    单例模式：保证一个类在内存中的对象唯一性
+    代码体现：私有化构造函数,创建私有并静态的本类对象,定义公有并静态的方法，返回该对象
+//饿汉式
+class Single{
+      private Single(){}//私有化构造函数
+          private static Single s=new Single();//创建私有并静态的本类对象
+            public static Single getInstance(){//定义公有并静态的方法，返回该对象
+        return s;
+    }
+}
+//懒汉式:延迟加载
+class Single2{
+  private Single2(){}
+  private static Single2 s=null;<
+  public static Single2 getInstance(){
+      if(s==null)<
+      s=new Single2();
+    return s;
+}
+}
 java不支持多继承，但是支持多重继承
 ------
     子类实例化过程：首先调用父类的构造函数，子类所有的构造函数都会默认访问父类的空构造函数，每一个子类构造函数第一行隐藏super（）；如果父类没有空构造，子类构造函数必须通过super指定访问父类构造函数；如果子类构造函数中用this来指定子类自己的构造函数，被调用的构造函数一样会访问父类的构造函数
-super()和this()不可出现在相同的构造函数中
-方法的覆盖：子类权限大于等于父类方法权限。要么都静态，要么都不静态
-final：修饰类，方法，变量
-被final修饰的类不可被继承
+    super()和this()不可出现在相同的构造函数中
+    方法的覆盖：子类权限大于等于父类方法权限。要么都静态，要么都不静态
+    final：修饰类，方法，变量,被final修饰的类不可被继承
 被final修饰的方法不可被继承
 被final修饰的变量是常量，只能赋值一次
 抽象类：abstract
