@@ -14,24 +14,24 @@ java总结
     静态代码块>构造代码块>构造函数
     单例模式：保证一个类在内存中的对象唯一性
     代码体现：私有化构造函数,创建私有并静态的本类对象,定义公有并静态的方法，返回该对象
-//饿汉式
-class Single{
-      private Single(){}//私有化构造函数
-          private static Single s=new Single();//创建私有并静态的本类对象
-            public static Single getInstance(){//定义公有并静态的方法，返回该对象
-        return s;
-    }
-}
-//懒汉式:延迟加载
-class Single2{
-  private Single2(){}
-  private static Single2 s=null;<
-  public static Single2 getInstance(){
-      if(s==null)<
-      s=new Single2();
-    return s;
-}
-}
+    //饿汉式
+class Single{<br>
+      private Single(){}//私有化构造函数<br>
+          private static Single s=new Single();//创建私有并静态的本类对象<br>
+            public static Single getInstance(){//定义公有并静态的方法，返回该对象<br>
+        return s;<br>
+    }<br>
+}<br>
+    //懒汉式:延迟加载
+class Single2{<br>
+  private Single2(){}<br>
+  private static Single2 s=null;<br>
+  public static Single2 getInstance(){<br>
+      if(s==null)<<br>
+      s=new Single2();<br>
+    return s;v
+}<br>
+}<br>
 java不支持多继承，但是支持多重继承
 ------
     子类实例化过程：首先调用父类的构造函数，子类所有的构造函数都会默认访问父类的空构造函数，每一个子类构造函数第一行隐藏super（）；如果父类没有空构造，子类构造函数必须通过super指定访问父类构造函数；如果子类构造函数中用this来指定子类自己的构造函数，被调用的构造函数一样会访问父类的构造函数
